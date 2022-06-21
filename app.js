@@ -1,6 +1,7 @@
 function main(){
     load_board();
     set_box_properties();
+    set_chesspieces_in_initial_position();
 }
 
 function load_board(){
@@ -34,6 +35,7 @@ function load_board(){
 
             document.getElementsByClassName("box")[n].innerHTML=n+1;
             document.getElementsByClassName("box")[n].setAttribute("onclick","select_box("+(n+1)+");");
+            document.getElementsByClassName("box")[n].setAttribute("id","cell_number_"+(n+1));
             n++;
         }
     }
@@ -329,9 +331,9 @@ function set_box_properties(){
         },
         cell_48:{
             cell_number:48,
-            item_exists:true,
-            item_colour:"white",
-            item_type:"pawn"
+            item_exists:false,
+            item_colour:"",
+            item_type:""
         },
         cell_49:{
             cell_number:49,
@@ -432,7 +434,18 @@ function set_box_properties(){
     };
 }
 
+function set_chesspieces_in_initial_position(){
+    var i=0;
+    for(i=0;i<64;i++){
+        document.getElementById("cell_number_"+(i+1)).innerHTML=eval("box.cell_"+(i+1)+".item_colour")+"<br>"+eval("box.cell_"+(i+1)+".item_type");
+    }
+}
+
 function select_box(i){
     var cell=eval("box.cell_"+i);
     console.log(cell.cell_number+","+cell.item_exists+","+cell.item_colour+","+cell.item_type);
+    if(eval("box.cell_"+(i)+".item_exists")==true){
+        document.getElementById("cell_number_"+(i)).style.backgroundColor="yellow";
+        document.getElementById("cell_number_"+(i)).style.color="black";
+    }
 }
