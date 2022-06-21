@@ -448,4 +448,19 @@ function select_box(i){
         document.getElementById("cell_number_"+(i)).style.backgroundColor="yellow";
         document.getElementById("cell_number_"+(i)).style.color="black";
     }
+    /* -- white pawn -- */
+    if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="white"){
+        document.getElementById("cell_number_"+(i-8)).style.backgroundColor="cyan";
+        if(i>48 && i<57){
+            document.getElementById("cell_number_"+(i-16)).style.backgroundColor="cyan";
+        }
+    }
+    /* -- black pawn -- */
+    if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="black"){
+        document.getElementById("cell_number_"+(i+8)).style.backgroundColor="cyan";
+        if(i>8 && i<17){
+            document.getElementById("cell_number_"+(i+16)).style.backgroundColor="cyan";
+        }
+    }
+
 }
