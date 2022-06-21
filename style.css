@@ -1,0 +1,13 @@
+body{
+    background-color: black;
+}
+.board{
+    display:flex;flex-direction: column;width: fit-content;height: fit-content;border:1px black solid;padding: 5px;
+}
+.row{
+    display: flex;flex-direction: row;width: 512px;height:64px;box-sizing: border-box;
+}
+.box{
+    display: flex;align-items: flex-end;justify-content: flex-end;width: 64px;height: 64px;box-sizing: border-box;padding: 5px;
+    font-size: 10px;cursor: pointer;
+}
