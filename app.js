@@ -471,16 +471,34 @@ function select_box(i){
         }
         /* -- white pawn -- */
         if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="white"){
-            document.getElementById("cell_number_"+(i-8)).style.backgroundColor="cyan";
             if(i>48 && i<57){
-                document.getElementById("cell_number_"+(i-16)).style.backgroundColor="cyan";
+                if(eval("box.cell_"+(i-8)+".item_exists")==false){
+                    document.getElementById("cell_number_"+(i-8)).style.backgroundColor="cyan";
+                }
+                if(eval("box.cell_"+(i-8)+".item_exists")==false && eval("box.cell_"+(i-16)+".item_exists")==false){
+                    document.getElementById("cell_number_"+(i-16)).style.backgroundColor="cyan";
+                }
+            }
+            else if(i>8){
+                if(eval("box.cell_"+(i-8)+".item_exists")==false){
+                    document.getElementById("cell_number_"+(i-8)).style.backgroundColor="cyan";
+                }
             }
         }
         /* -- black pawn -- */
         if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="black"){
-            document.getElementById("cell_number_"+(i+8)).style.backgroundColor="cyan";
             if(i>8 && i<17){
-                document.getElementById("cell_number_"+(i+16)).style.backgroundColor="cyan";
+                if(eval("box.cell_"+(i+8)+".item_exists")==false){
+                    document.getElementById("cell_number_"+(i+8)).style.backgroundColor="cyan";
+                }
+                if(eval("box.cell_"+(i+8)+".item_exists")==false && eval("box.cell_"+(i+16)+".item_exists")==false){
+                    document.getElementById("cell_number_"+(i+16)).style.backgroundColor="cyan";
+                }            
+            }
+            else if(i<57){
+                if(eval("box.cell_"+(i+8)+".item_exists")==false){
+                    document.getElementById("cell_number_"+(i+8)).style.backgroundColor="cyan";
+                }
             }
         }
     }
