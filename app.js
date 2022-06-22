@@ -449,7 +449,7 @@ function select_box(i){
         p=0;
     }
     else if(is_an_item_selected==true){
-        if(document.getElementById("cell_number_"+(i)).style.backgroundColor=="cyan"){
+        if((document.getElementById("cell_number_"+(i)).style.backgroundColor=="cyan")||(document.getElementById("cell_number_"+(i)).style.backgroundColor=="magenta")){
             temp_box_i=eval("box.cell_"+i);
             temp_box_p=eval("box.cell_"+p);
             temp_box_i.item_exists=temp_box_p.item_exists;
@@ -457,6 +457,9 @@ function select_box(i){
             temp_box_i.item_colour=temp_box_p.item_colour;
             document.getElementById("cell_number_"+i).innerHTML=eval("box.cell_"+i+".item_colour")+"<br>"+eval("box.cell_"+i+".item_type");
             document.getElementById("cell_number_"+p).innerHTML="";
+            temp_box_p.item_exists=false;
+            temp_box_p.item_type="";
+            temp_box_p.item_colour="";
             reset_box_colours();
             is_an_item_selected=false;
             p=0;
@@ -477,6 +480,16 @@ function select_box(i){
                 }
                 if(eval("box.cell_"+(i-8)+".item_exists")==false && eval("box.cell_"+(i-16)+".item_exists")==false){
                     document.getElementById("cell_number_"+(i-16)).style.backgroundColor="cyan";
+                }
+                if(i-9>0 && i!=1 && i!=9 && i!=17 && i!=25 && i!=33 && i!=41 && i!=49){
+                    if(eval("box.cell_"+(i-9)+".item_exists")==true && eval("box.cell_"+(i-9)+".item_colour")=="black"){
+                        document.getElementById("cell_number_"+(i-9)).style.backgroundColor="magenta";
+                    }
+                }
+                if(i-7>0 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=52){
+                    if(eval("box.cell_"+(i-7)+".item_exists")==true && eval("box.cell_"+(i-7)+".item_colour")=="black"){
+                        document.getElementById("cell_number_"+(i-7)).style.backgroundColor="magenta";
+                    }
                 }
             }
             else if(i>8){
@@ -503,6 +516,16 @@ function select_box(i){
                 }
                 if(eval("box.cell_"+(i+8)+".item_exists")==false && eval("box.cell_"+(i+16)+".item_exists")==false){
                     document.getElementById("cell_number_"+(i+16)).style.backgroundColor="cyan";
+                }
+                if(i+9<65 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=52){
+                    if(eval("box.cell_"+(i+9)+".item_exists")==true && eval("box.cell_"+(i+9)+".item_colour")=="white"){
+                        document.getElementById("cell_number_"+(i+9)).style.backgroundColor="magenta";
+                    }
+                }
+                if(i+7<65 && i!=1 && i!=9 && i!=17 && i!=25 && i!=33 && i!=41 && i!=49){
+                    if(eval("box.cell_"+(i+7)+".item_exists")==true && eval("box.cell_"+(i+7)+".item_colour")=="white"){
+                        document.getElementById("cell_number_"+(i+7)).style.backgroundColor="magenta";
+                    }
                 }            
             }
             else if(i<57){
@@ -539,11 +562,22 @@ function reset_box_colours(){
             if(m%2==0){
                 document.getElementsByClassName("box")[n].style.backgroundColor=white;
                 document.getElementsByClassName("box")[n].style.color=black;
+                if(eval("box.cell_"+(n+1)+".item_exists")==false){
+                    document.getElementsByClassName("box")[n].innerHTML=n+1;
+                }
+                else{
+                    document.getElementsByClassName("box")[n].innerHTML=eval("box.cell_"+(n+1)+".item_colour")+"<br>"+eval("box.cell_"+(n+1)+".item_type")+" "+(n+1);
+                }
             }
             else{
                 document.getElementsByClassName("box")[n].style.backgroundColor=black;
                 document.getElementsByClassName("box")[n].style.color=white;
-            }
+                if(eval("box.cell_"+(n+1)+".item_exists")==false){
+                    document.getElementsByClassName("box")[n].innerHTML=n+1;
+                }
+                else{
+                    document.getElementsByClassName("box")[n].innerHTML=eval("box.cell_"+(n+1)+".item_colour")+"<br>"+eval("box.cell_"+(n+1)+".item_type")+" "+(n+1);
+                }            }
             n++;
         }
     }
