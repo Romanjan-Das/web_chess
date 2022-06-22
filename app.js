@@ -483,6 +483,16 @@ function select_box(i){
                 if(eval("box.cell_"+(i-8)+".item_exists")==false){
                     document.getElementById("cell_number_"+(i-8)).style.backgroundColor="cyan";
                 }
+                if(i-9>0 && i!=1 && i!=9 && i!=17 && i!=25 && i!=33 && i!=41 && i!=49){
+                    if(eval("box.cell_"+(i-9)+".item_exists")==true && eval("box.cell_"+(i-9)+".item_colour")=="black"){
+                        document.getElementById("cell_number_"+(i-9)).style.backgroundColor="magenta";
+                    }
+                }
+                if(i-7>0 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=52){
+                    if(eval("box.cell_"+(i-7)+".item_exists")==true && eval("box.cell_"+(i-7)+".item_colour")=="black"){
+                        document.getElementById("cell_number_"+(i-7)).style.backgroundColor="magenta";
+                    }
+                }
             }
         }
         /* -- black pawn -- */
@@ -498,6 +508,16 @@ function select_box(i){
             else if(i<57){
                 if(eval("box.cell_"+(i+8)+".item_exists")==false){
                     document.getElementById("cell_number_"+(i+8)).style.backgroundColor="cyan";
+                }
+                if(i+9<65 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=52){
+                    if(eval("box.cell_"+(i+9)+".item_exists")==true && eval("box.cell_"+(i+9)+".item_colour")=="white"){
+                        document.getElementById("cell_number_"+(i+9)).style.backgroundColor="magenta";
+                    }
+                }
+                if(i+7<65 && i!=1 && i!=9 && i!=17 && i!=25 && i!=33 && i!=41 && i!=49){
+                    if(eval("box.cell_"+(i+7)+".item_exists")==true && eval("box.cell_"+(i+7)+".item_colour")=="white"){
+                        document.getElementById("cell_number_"+(i+7)).style.backgroundColor="magenta";
+                    }
                 }
             }
         }
