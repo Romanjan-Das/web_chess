@@ -440,27 +440,73 @@ function set_chesspieces_in_initial_position(){
         document.getElementById("cell_number_"+(i+1)).innerHTML=eval("box.cell_"+(i+1)+".item_colour")+"<br>"+eval("box.cell_"+(i+1)+".item_type");
     }
 }
-
+var p=0;/* <--previously selected cell number */ var is_an_item_selected=false;
 function select_box(i){
-    var cell=eval("box.cell_"+i);
-    console.log(cell.cell_number+","+cell.item_exists+","+cell.item_colour+","+cell.item_type);
-    if(eval("box.cell_"+(i)+".item_exists")==true){
-        document.getElementById("cell_number_"+(i)).style.backgroundColor="yellow";
-        document.getElementById("cell_number_"+(i)).style.color="black";
+    var temp_box_i; var temp_box_p;
+    if(is_an_item_selected==true && (document.getElementById("cell_number_"+(i)).style.backgroundColor=="yellow")){
+        reset_box_colours();
+        is_an_item_selected=false;
+        p=0;
     }
-    /* -- white pawn -- */
-    if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="white"){
-        document.getElementById("cell_number_"+(i-8)).style.backgroundColor="cyan";
-        if(i>48 && i<57){
-            document.getElementById("cell_number_"+(i-16)).style.backgroundColor="cyan";
+    else if(is_an_item_selected==true){
+        if(document.getElementById("cell_number_"+(i)).style.backgroundColor=="cyan"){
+            temp_box_i=eval("box.cell_"+i);
+            temp_box_p=eval("box.cell_"+p);
+            temp_box_i.item_exists=temp_box_p.item_exists;
+            temp_box_i.item_type=temp_box_p.item_type;
+            temp_box_i.item_colour=temp_box_p.item_colour;
+            document.getElementById("cell_number_"+i).innerHTML=eval("box.cell_"+i+".item_colour")+"<br>"+eval("box.cell_"+i+".item_type");
+            document.getElementById("cell_number_"+p).innerHTML="";
+            reset_box_colours();
+            is_an_item_selected=false;
+            p=0;
         }
     }
-    /* -- black pawn -- */
-    if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="black"){
-        document.getElementById("cell_number_"+(i+8)).style.backgroundColor="cyan";
-        if(i>8 && i<17){
-            document.getElementById("cell_number_"+(i+16)).style.backgroundColor="cyan";
+    else if(is_an_item_selected==false){
+        if(eval("box.cell_"+(i)+".item_exists")==true){
+            document.getElementById("cell_number_"+(i)).style.backgroundColor="yellow";
+            document.getElementById("cell_number_"+(i)).style.color="black";
+            p=i;
+            is_an_item_selected=true;
+        }
+        /* -- white pawn -- */
+        if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="white"){
+            document.getElementById("cell_number_"+(i-8)).style.backgroundColor="cyan";
+            if(i>48 && i<57){
+                document.getElementById("cell_number_"+(i-16)).style.backgroundColor="cyan";
+            }
+        }
+        /* -- black pawn -- */
+        if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="black"){
+            document.getElementById("cell_number_"+(i+8)).style.backgroundColor="cyan";
+            if(i>8 && i<17){
+                document.getElementById("cell_number_"+(i+16)).style.backgroundColor="cyan";
+            }
         }
     }
 
+
+}
+
+function reset_box_colours(){
+    var l=0;m=0;n=0;var white="black"; var black="black";
+    for(l=0;l<8;l++){
+        if(l%2==0){
+            white="white"; black="black";
+        }
+        else{
+            white="black"; black="white";
+        }
+        for(m=0;m<8;m++){
+            if(m%2==0){
+                document.getElementsByClassName("box")[n].style.backgroundColor=white;
+                document.getElementsByClassName("box")[n].style.color=black;
+            }
+            else{
+                document.getElementsByClassName("box")[n].style.backgroundColor=black;
+                document.getElementsByClassName("box")[n].style.color=white;
+            }
+            n++;
+        }
+    }
 }
