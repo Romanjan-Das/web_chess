@@ -442,7 +442,7 @@ function set_chesspieces_in_initial_position(){
 }
 var p=0;/* <--previously selected cell number */ var is_an_item_selected=false;
 function select_box(i){
-    var temp_box_i; var temp_box_p;
+    var temp_box_i; var temp_box_p; var box_colour;
     if(is_an_item_selected==true && (document.getElementById("cell_number_"+(i)).style.backgroundColor=="yellow")){
         reset_box_colours();
         is_an_item_selected=false;
@@ -473,6 +473,7 @@ function select_box(i){
     }
     else if(is_an_item_selected==false){
         if(eval("box.cell_"+(i)+".item_exists")==true){
+            box_colour=document.getElementById("cell_number_"+(i)).style.backgroundColor;
             document.getElementById("cell_number_"+(i)).style.backgroundColor="yellow";
             document.getElementById("cell_number_"+(i)).style.color="black";
             p=i;
@@ -480,6 +481,7 @@ function select_box(i){
         }
         pawn_movement(i);
         rook_movement(i);
+        bishop_movement(i,box_colour);
     }
 
 
@@ -686,6 +688,31 @@ function pawn_movement(i){
                 }
             }
         }
+}
+
+function bishop_movement(i,box_colour){
+    var northeast; var southeast; var southwest; var northwest;
+    console.log(box_colour);
+    northeast=i-7; southeast=i+9; southwest=i+7; northwest=i-9;
+    if(eval("box.cell_"+i+".item_exists")==true && eval("box.cell_"+i+".item_type")=="bishop"){
+        while(northeast>0 && document.getElementById("cell_number_"+northeast).style.backgroundColor==box_colour){
+            document.getElementById("cell_number_"+northeast).style.backgroundColor="cyan";
+            northeast=northeast-7;
+        }
+        while(southeast<65 && document.getElementById("cell_number_"+southeast).style.backgroundColor==box_colour){
+            document.getElementById("cell_number_"+southeast).style.backgroundColor="cyan";
+            southeast=southeast+9;
+        }
+        while(southwest<65 && document.getElementById("cell_number_"+southwest).style.backgroundColor==box_colour){
+            document.getElementById("cell_number_"+southwest).style.backgroundColor="cyan";
+            southwest=southwest+7;
+        }
+        while(northwest>0 && document.getElementById("cell_number_"+northwest).style.backgroundColor==box_colour){
+            document.getElementById("cell_number_"+northwest).style.backgroundColor="cyan";
+            northwest=northwest-9;
+        }
+    }
+    
 }
 
 function reset_box_colours(){
