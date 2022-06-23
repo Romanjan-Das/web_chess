@@ -691,24 +691,60 @@ function pawn_movement(i){
 }
 
 function bishop_movement(i,box_colour){
-    var northeast; var southeast; var southwest; var northwest;
-    console.log(box_colour);
+    var northeast; var southeast; var southwest; var northwest; var item_colour;
+    item_colour=eval("box.cell_"+i+".item_colour");
     northeast=i-7; southeast=i+9; southwest=i+7; northwest=i-9;
     if(eval("box.cell_"+i+".item_exists")==true && eval("box.cell_"+i+".item_type")=="bishop"){
         while(northeast>0 && document.getElementById("cell_number_"+northeast).style.backgroundColor==box_colour){
-            document.getElementById("cell_number_"+northeast).style.backgroundColor="cyan";
+            if(eval("box.cell_"+northeast+".item_exists")==true && eval("box.cell_"+northeast+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+northeast).style.backgroundColor="magenta";
+                break;
+            }
+            else if(eval("box.cell_"+northeast+".item_exists")==true && eval("box.cell_"+northeast+".item_colour")==item_colour){
+                break;
+            }
+            else{
+                document.getElementById("cell_number_"+northeast).style.backgroundColor="cyan";
+            }
             northeast=northeast-7;
         }
         while(southeast<65 && document.getElementById("cell_number_"+southeast).style.backgroundColor==box_colour){
-            document.getElementById("cell_number_"+southeast).style.backgroundColor="cyan";
+            if(eval("box.cell_"+southeast+".item_exists")==true && eval("box.cell_"+southeast+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+southeast).style.backgroundColor="magenta";
+                break;
+            }
+            else if(eval("box.cell_"+southeast+".item_exists")==true && eval("box.cell_"+southeast+".item_colour")==item_colour){
+                break;
+            }
+            else{
+                document.getElementById("cell_number_"+southeast).style.backgroundColor="cyan";
+            }
             southeast=southeast+9;
         }
         while(southwest<65 && document.getElementById("cell_number_"+southwest).style.backgroundColor==box_colour){
-            document.getElementById("cell_number_"+southwest).style.backgroundColor="cyan";
+            if(eval("box.cell_"+southwest+".item_exists")==true && eval("box.cell_"+southwest+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+southwest).style.backgroundColor="magenta";
+                break;
+            }
+            else if(eval("box.cell_"+southwest+".item_exists")==true && eval("box.cell_"+southwest+".item_colour")==item_colour){
+                break;
+            }
+            else{            
+                document.getElementById("cell_number_"+southwest).style.backgroundColor="cyan";
+            }
             southwest=southwest+7;
         }
         while(northwest>0 && document.getElementById("cell_number_"+northwest).style.backgroundColor==box_colour){
-            document.getElementById("cell_number_"+northwest).style.backgroundColor="cyan";
+            if(eval("box.cell_"+northwest+".item_exists")==true && eval("box.cell_"+northwest+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+northwest).style.backgroundColor="magenta";
+                break;
+            }
+            else if(eval("box.cell_"+northwest+".item_exists")==true && eval("box.cell_"+northwest+".item_colour")==item_colour){
+                break;
+            }
+            else{
+                document.getElementById("cell_number_"+northwest).style.backgroundColor="cyan";
+            }
             northwest=northwest-9;
         }
     }
