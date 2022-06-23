@@ -522,13 +522,35 @@ function rook_movement(i){
             while(left>left_limit){
                 left=left-1;
                 if(left>left_limit){
-                    document.getElementById("cell_number_"+left).style.backgroundColor="cyan";
+                    if(eval("box.cell_"+left+".item_exists")==true){
+                        if(eval("box.cell_"+left+".item_colour")=="black"){
+                            document.getElementById("cell_number_"+left).style.backgroundColor="magenta";
+                            break;
+                        }
+                        else{
+                            break;
+                        }
+                    }
+                    else{
+                        document.getElementById("cell_number_"+left).style.backgroundColor="cyan";
+                    }
                 }
             }
             while(right<right_limit){
                 right=right+1;
                 if(right<right_limit){
-                    document.getElementById("cell_number_"+right).style.backgroundColor="cyan";
+                    if(eval("box.cell_"+right+".item_exists")==true){
+                        if(eval("box.cell_"+right+".item_colour")=="black"){
+                            document.getElementById("cell_number_"+right).style.backgroundColor="magenta";
+                            break;
+                        }
+                        else{
+                            break;
+                        }
+                    }
+                    else{    
+                        document.getElementById("cell_number_"+right).style.backgroundColor="cyan";
+                    }
                 }
             }
             
@@ -541,13 +563,35 @@ function rook_movement(i){
             while(top>top_limit){
                 top=top-8;
                 if(top>top_limit){
-                    document.getElementById("cell_number_"+top).style.backgroundColor="cyan";
+                    if(eval("box.cell_"+top+".item_exists")==true){
+                        if(eval("box.cell_"+top+".item_colour")=="black"){
+                            document.getElementById("cell_number_"+top).style.backgroundColor="magenta";
+                            break;
+                        }
+                        else{
+                            break;
+                        }
+                    }
+                    else{
+                        document.getElementById("cell_number_"+top).style.backgroundColor="cyan";
+                    }
                 }
             }
             while(bottom<bottom_limit){
                 bottom=bottom+8;
                 if(bottom<bottom_limit){
-                    document.getElementById("cell_number_"+bottom).style.backgroundColor="cyan";
+                    if(eval("box.cell_"+bottom+".item_exists")==true){
+                        if(eval("box.cell_"+bottom+".item_colour")=="black"){
+                            document.getElementById("cell_number_"+bottom).style.backgroundColor="magenta";
+                            break;
+                        }
+                        else{
+                            break;
+                        }
+                    }
+                    else{
+                        document.getElementById("cell_number_"+bottom).style.backgroundColor="cyan";
+                    }
                 }
             }
         }
