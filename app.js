@@ -534,31 +534,7 @@ function rook_movement(i){
             
 
             /* ---- vertical ---- */
-
-            if(i>0 && i<58){
-                top_limit=0; bottom_limit=58; 
-            }
-            else if(i>1 && i<59){
-                top_limit=1; bottom_limit=59; 
-            }
-            else if(i>2 && i<60){
-                top_limit=2; bottom_limit=60; 
-            }
-            else if(i>3 && i<61){
-                top_limit=3; bottom_limit=61;
-            }
-            else if(i>4 && i<62){
-                top_limit=4; bottom_limit=62;
-            }
-            else if(i>5 && i<63){
-                top_limit=5; bottom_limit=63;
-            }
-            else if(i>6 && i<64){
-                top_limit=6; bottom_limit=64;
-            }
-            else if(i>7 && i<65){
-                top_limit=7; bottom_limit=65;
-            }
+            top_limit=0; bottom_limit=65;
             top=i; bottom=i; 
             console.log("i:"+i+" top_limit:"+top_limit+" bottom_limit:"+bottom_limit+" top:"+top+" bottom:"+bottom);
             
