@@ -488,7 +488,7 @@ function select_box(i){
 function rook_movement(i){
     var left; var right; var top; var bottom; var left_limit; var right_limit; var top_limit; var bottom_limit;
         /* -- white rook -- */
-        if(eval("box.cell_"+i+".item_type")=="rook" && eval("box.cell_"+i+".item_colour")=="white"){
+        if(eval("box.cell_"+i+".item_type")=="rook"){
 
             /* ---- horizontal ---- */
 
@@ -523,7 +523,11 @@ function rook_movement(i){
                 left=left-1;
                 if(left>left_limit){
                     if(eval("box.cell_"+left+".item_exists")==true){
-                        if(eval("box.cell_"+left+".item_colour")=="black"){
+                        if(eval("box.cell_"+left+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                            document.getElementById("cell_number_"+left).style.backgroundColor="magenta";
+                            break;
+                        }
+                        else if(eval("box.cell_"+left+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
                             document.getElementById("cell_number_"+left).style.backgroundColor="magenta";
                             break;
                         }
@@ -540,7 +544,11 @@ function rook_movement(i){
                 right=right+1;
                 if(right<right_limit){
                     if(eval("box.cell_"+right+".item_exists")==true){
-                        if(eval("box.cell_"+right+".item_colour")=="black"){
+                        if(eval("box.cell_"+right+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                            document.getElementById("cell_number_"+right).style.backgroundColor="magenta";
+                            break;
+                        }
+                        else if(eval("box.cell_"+right+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
                             document.getElementById("cell_number_"+right).style.backgroundColor="magenta";
                             break;
                         }
@@ -564,7 +572,11 @@ function rook_movement(i){
                 top=top-8;
                 if(top>top_limit){
                     if(eval("box.cell_"+top+".item_exists")==true){
-                        if(eval("box.cell_"+top+".item_colour")=="black"){
+                        if(eval("box.cell_"+top+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                            document.getElementById("cell_number_"+top).style.backgroundColor="magenta";
+                            break;
+                        }
+                        else if(eval("box.cell_"+top+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
                             document.getElementById("cell_number_"+top).style.backgroundColor="magenta";
                             break;
                         }
@@ -581,7 +593,11 @@ function rook_movement(i){
                 bottom=bottom+8;
                 if(bottom<bottom_limit){
                     if(eval("box.cell_"+bottom+".item_exists")==true){
-                        if(eval("box.cell_"+bottom+".item_colour")=="black"){
+                        if(eval("box.cell_"+bottom+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                            document.getElementById("cell_number_"+bottom).style.backgroundColor="magenta";
+                            break;
+                        }
+                        else if(eval("box.cell_"+bottom+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
                             document.getElementById("cell_number_"+bottom).style.backgroundColor="magenta";
                             break;
                         }
@@ -594,10 +610,6 @@ function rook_movement(i){
                     }
                 }
             }
-        }
-        /* -- black rook -- */
-        if(eval("box.cell_"+i+".item_type")=="rook" && eval("box.cell_"+i+".item_colour")=="black"){
-            
         }
 }
 
