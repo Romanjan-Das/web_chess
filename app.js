@@ -455,6 +455,12 @@ function select_box(i){
             temp_box_i.item_exists=temp_box_p.item_exists;
             temp_box_i.item_type=temp_box_p.item_type;
             temp_box_i.item_colour=temp_box_p.item_colour;
+            if(temp_box_i.item_colour=="black" && temp_box_i.item_type=="pawn" && i>56){
+                temp_box_i.item_type="queen";
+            }
+            if(temp_box_i.item_colour=="white" && temp_box_i.item_type=="pawn" && i<9){
+                temp_box_i.item_type="queen";
+            }
             document.getElementById("cell_number_"+i).innerHTML=eval("box.cell_"+i+".item_colour")+"<br>"+eval("box.cell_"+i+".item_type");
             document.getElementById("cell_number_"+p).innerHTML="";
             temp_box_p.item_exists=false;
@@ -486,7 +492,7 @@ function select_box(i){
                         document.getElementById("cell_number_"+(i-9)).style.backgroundColor="magenta";
                     }
                 }
-                if(i-7>0 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=52){
+                if(i-7>0 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=56){
                     if(eval("box.cell_"+(i-7)+".item_exists")==true && eval("box.cell_"+(i-7)+".item_colour")=="black"){
                         document.getElementById("cell_number_"+(i-7)).style.backgroundColor="magenta";
                     }
@@ -501,7 +507,7 @@ function select_box(i){
                         document.getElementById("cell_number_"+(i-9)).style.backgroundColor="magenta";
                     }
                 }
-                if(i-7>0 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=52){
+                if(i-7>0 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=56){
                     if(eval("box.cell_"+(i-7)+".item_exists")==true && eval("box.cell_"+(i-7)+".item_colour")=="black"){
                         document.getElementById("cell_number_"+(i-7)).style.backgroundColor="magenta";
                     }
@@ -517,7 +523,7 @@ function select_box(i){
                 if(eval("box.cell_"+(i+8)+".item_exists")==false && eval("box.cell_"+(i+16)+".item_exists")==false){
                     document.getElementById("cell_number_"+(i+16)).style.backgroundColor="cyan";
                 }
-                if(i+9<65 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=52){
+                if(i+9<65 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=56){
                     if(eval("box.cell_"+(i+9)+".item_exists")==true && eval("box.cell_"+(i+9)+".item_colour")=="white"){
                         document.getElementById("cell_number_"+(i+9)).style.backgroundColor="magenta";
                     }
@@ -532,7 +538,7 @@ function select_box(i){
                 if(eval("box.cell_"+(i+8)+".item_exists")==false){
                     document.getElementById("cell_number_"+(i+8)).style.backgroundColor="cyan";
                 }
-                if(i+9<65 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=52){
+                if(i+9<65 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=56){
                     if(eval("box.cell_"+(i+9)+".item_exists")==true && eval("box.cell_"+(i+9)+".item_colour")=="white"){
                         document.getElementById("cell_number_"+(i+9)).style.backgroundColor="magenta";
                     }
