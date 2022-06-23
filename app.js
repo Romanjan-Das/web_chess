@@ -478,6 +478,110 @@ function select_box(i){
             p=i;
             is_an_item_selected=true;
         }
+        pawn_movement(i);
+        rook_movement(i);
+    }
+
+
+}
+
+function rook_movement(i){
+    var left; var right; var top; var bottom; var left_limit; var right_limit; var top_limit; var bottom_limit;
+        /* -- white rook -- */
+        if(eval("box.cell_"+i+".item_type")=="rook" && eval("box.cell_"+i+".item_colour")=="white"){
+
+            /* ---- horizontal ---- */
+
+            if(i>0 && i<9){
+                left_limit=0; right_limit=9; 
+            }
+            else if(i>8 && i<17){
+                left_limit=8; right_limit=17; 
+            }
+            else if(i>16 && i<25){
+                left_limit=16; right_limit=25; 
+            }
+            else if(i>24 && i<33){
+                left_limit=24; right_limit=33;
+            }
+            else if(i>32 && i<41){
+                left_limit=32; right_limit=41;
+            }
+            else if(i>40 && i<49){
+                left_limit=40; right_limit=49;
+            }
+            else if(i>48 && i<57){
+                left_limit=48; right_limit=57;
+            }
+            else if(i>56 && i<65){
+                left_limit=56; right_limit=65;
+            }
+            left=i; right=i; 
+            console.log("i:"+i+" left_limit:"+left_limit+" right_limit:"+right_limit+" left:"+left+" right:"+right);
+            
+            while(left>left_limit){
+                left=left-1;
+                if(left>left_limit){
+                    document.getElementById("cell_number_"+left).style.backgroundColor="cyan";
+                }
+            }
+            while(right<right_limit){
+                right=right+1;
+                if(right<right_limit){
+                    document.getElementById("cell_number_"+right).style.backgroundColor="cyan";
+                }
+            }
+            
+
+            /* ---- vertical ---- */
+
+            if(i>0 && i<58){
+                top_limit=0; bottom_limit=58; 
+            }
+            else if(i>1 && i<59){
+                top_limit=1; bottom_limit=59; 
+            }
+            else if(i>2 && i<60){
+                top_limit=2; bottom_limit=60; 
+            }
+            else if(i>3 && i<61){
+                top_limit=3; bottom_limit=61;
+            }
+            else if(i>4 && i<62){
+                top_limit=4; bottom_limit=62;
+            }
+            else if(i>5 && i<63){
+                top_limit=5; bottom_limit=63;
+            }
+            else if(i>6 && i<64){
+                top_limit=6; bottom_limit=64;
+            }
+            else if(i>7 && i<65){
+                top_limit=7; bottom_limit=65;
+            }
+            top=i; bottom=i; 
+            console.log("i:"+i+" top_limit:"+top_limit+" bottom_limit:"+bottom_limit+" top:"+top+" bottom:"+bottom);
+            
+            while(top>top_limit){
+                top=top-8;
+                if(top>top_limit){
+                    document.getElementById("cell_number_"+top).style.backgroundColor="cyan";
+                }
+            }
+            while(bottom<bottom_limit){
+                bottom=bottom+8;
+                if(bottom<bottom_limit){
+                    document.getElementById("cell_number_"+bottom).style.backgroundColor="cyan";
+                }
+            }
+        }
+        /* -- black rook -- */
+        if(eval("box.cell_"+i+".item_type")=="rook" && eval("box.cell_"+i+".item_colour")=="black"){
+            
+        }
+}
+
+function pawn_movement(i){
         /* -- white pawn -- */
         if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="white"){
             if(i>48 && i<57){
@@ -550,9 +654,6 @@ function select_box(i){
                 }
             }
         }
-    }
-
-
 }
 
 function reset_box_colours(){
