@@ -30,11 +30,9 @@ function load_board(){
         for(m=0;m<8;m++){
             if(m%2==0){
                 document.getElementsByClassName("box")[n].style.backgroundColor=white;
-                document.getElementsByClassName("box")[n].style.color=black;
             }
             else{
                 document.getElementsByClassName("box")[n].style.backgroundColor=black;
-                document.getElementsByClassName("box")[n].style.color=white;
             }
 
             document.getElementsByClassName("chess_piece_icon")[n].setAttribute("id","piece_"+(n+1));
@@ -450,6 +448,7 @@ function set_chesspieces_in_initial_position(){
     }
 }
 var p=0;/* <--previously selected cell number */ var is_an_item_selected=false;
+var turn_of_colour="white";
 function select_box(i){
     var temp_box_i; var temp_box_p; var box_colour;
     if(is_an_item_selected==true && (document.getElementById("cell_number_"+(i)).style.backgroundColor=="yellow")){
@@ -472,6 +471,12 @@ function select_box(i){
             }
             document.getElementById("piece_"+i).setAttribute("src","assets/"+eval("box.cell_"+i+".item_colour")+"_"+eval("box.cell_"+i+".item_type")+".png");
             document.getElementById("piece_"+p).setAttribute("src","assets/blank.png");
+            if(turn_of_colour=="white"){
+                turn_of_colour="black";
+            }
+            else if(turn_of_colour=="black"){
+                turn_of_colour="white";
+            }
             temp_box_p.item_exists=false;
             temp_box_p.item_type="";
             temp_box_p.item_colour="";
@@ -481,19 +486,20 @@ function select_box(i){
         }
     }
     else if(is_an_item_selected==false){
-        if(eval("box.cell_"+(i)+".item_exists")==true){
-            box_colour=document.getElementById("cell_number_"+(i)).style.backgroundColor;
-            document.getElementById("cell_number_"+(i)).style.backgroundColor="yellow";
-            document.getElementById("cell_number_"+(i)).style.color="black";
-            p=i;
-            is_an_item_selected=true;
+        if((eval("box.cell_"+(i)+".item_colour")==turn_of_colour)){        
+            if(eval("box.cell_"+(i)+".item_exists")==true){
+                box_colour=document.getElementById("cell_number_"+(i)).style.backgroundColor;
+                document.getElementById("cell_number_"+(i)).style.backgroundColor="yellow";
+                p=i;
+                is_an_item_selected=true;
+            }
+            pawn_movement(i);
+            rook_movement(i);
+            bishop_movement(i,box_colour);
+            knight_movement(i,box_colour);
+            queen_movement(i,box_colour);
+            king_movement(i);
         }
-        pawn_movement(i);
-        rook_movement(i);
-        bishop_movement(i,box_colour);
-        knight_movement(i,box_colour);
-        queen_movement(i,box_colour);
-        king_movement(i);
     }
 
 
@@ -531,7 +537,6 @@ function rook_movement(i){
                 left_limit=56; right_limit=65;
             }
             left=i; right=i; 
-            console.log("i:"+i+" left_limit:"+left_limit+" right_limit:"+right_limit+" left:"+left+" right:"+right);
             
             while(left>left_limit){
                 left=left-1;
@@ -580,7 +585,6 @@ function rook_movement(i){
             /* ---- vertical ---- */
             top_limit=0; bottom_limit=65;
             top=i; bottom=i; 
-            console.log("i:"+i+" top_limit:"+top_limit+" bottom_limit:"+bottom_limit+" top:"+top+" bottom:"+bottom);
             
             while(top>top_limit){
                 top=top-8;
@@ -907,7 +911,6 @@ function queen_movement(i,box_colour){
                     left_limit=56; right_limit=65;
                 }
                 left=i; right=i; 
-                console.log("i:"+i+" left_limit:"+left_limit+" right_limit:"+right_limit+" left:"+left+" right:"+right);
                 
                 while(left>left_limit){
                     left=left-1;
@@ -956,7 +959,6 @@ function queen_movement(i,box_colour){
                 /* ---- vertical ---- */
                 top_limit=0; bottom_limit=65;
                 top=i; bottom=i; 
-                console.log("i:"+i+" top_limit:"+top_limit+" bottom_limit:"+bottom_limit+" top:"+top+" bottom:"+bottom);
                 
                 while(top>top_limit){
                     top=top-8;
@@ -1174,29 +1176,10 @@ function reset_box_colours(){
         for(m=0;m<8;m++){
             if(m%2==0){
                 document.getElementsByClassName("box")[n].style.backgroundColor=white;
-                document.getElementsByClassName("box")[n].style.color=black;
-                /*
-                if(eval("box.cell_"+(n)+".item_exists")==true){
-                    document.getElementById("piece_"+(n)).setAttribute("src","assets/"+eval("box.cell_"+(n)+".item_colour")+"_"+eval("box.cell_"+(n)+".item_type")+".png");
-                }
-                else{
-                    document.getElementById("piece_"+(n)).setAttribute("src","assets/blank.png");
-                }
-                */
             }
             else{
-                document.getElementsByClassName("box")[n].style.backgroundColor=black;
-                document.getElementsByClassName("box")[n].style.color=white;
-                /*
-                if(eval("box.cell_"+(n)+".item_exists")==true){
-                    document.getElementById("piece_"+(n)).setAttribute("src","assets/"+eval("box.cell_"+(n)+".item_colour")+"_"+eval("box.cell_"+(n)+".item_type")+".png");
-                }
-                else{
-                    document.getElementById("piece_"+(n)).setAttribute("src","assets/blank.png");
-                }    
-                */        
+                document.getElementsByClassName("box")[n].style.backgroundColor=black;       
             }
-            console.log(n);
             n++;
         }
     }
