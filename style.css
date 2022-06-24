@@ -11,3 +11,6 @@ body{
     display: flex;align-items: center;justify-content: center;width: 64px;height: 64px;box-sizing: border-box;
     font-size: 10px;cursor: pointer;
 }
+.chess_piece_icon{
+    width: 80%; height: 80%;
+}

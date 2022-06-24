@@ -11,6 +11,10 @@ function load_board(){
         for(j=0;j<8;j++){
             var box=document.createElement("div");
             box.setAttribute("class","box");
+            var img=document.createElement("img");
+            img.setAttribute("class","chess_piece_icon");
+            img.setAttribute("src","/assets/blank.png");
+            box.appendChild(img);
             row.appendChild(box);
         }
     }
@@ -33,7 +37,8 @@ function load_board(){
                 document.getElementsByClassName("box")[n].style.color=white;
             }
 
-            document.getElementsByClassName("box")[n].innerHTML=n+1;
+            //document.getElementsByClassName("box")[n].innerHTML=n+1;
+            document.getElementsByClassName("chess_piece_icon")[n].setAttribute("id","piece_"+(n+1));
             document.getElementsByClassName("box")[n].setAttribute("onclick","select_box("+(n+1)+");");
             document.getElementsByClassName("box")[n].setAttribute("id","cell_number_"+(n+1));
             n++;
@@ -437,7 +442,12 @@ function set_box_properties(){
 function set_chesspieces_in_initial_position(){
     var i=0;
     for(i=0;i<64;i++){
-        document.getElementById("cell_number_"+(i+1)).innerHTML=eval("box.cell_"+(i+1)+".item_colour")+"<br>"+eval("box.cell_"+(i+1)+".item_type");
+        if(eval("box.cell_"+(i+1)+".item_exists")==true){
+            document.getElementById("piece_"+(i+1)).setAttribute("src","assets/"+eval("box.cell_"+(i+1)+".item_colour")+"_"+eval("box.cell_"+(i+1)+".item_type")+".png");
+        }
+        else{
+            document.getElementById("piece_"+(i+1)).setAttribute("src","assets/blank.png");
+        }
     }
 }
 var p=0;/* <--previously selected cell number */ var is_an_item_selected=false;
@@ -1166,22 +1176,23 @@ function reset_box_colours(){
             if(m%2==0){
                 document.getElementsByClassName("box")[n].style.backgroundColor=white;
                 document.getElementsByClassName("box")[n].style.color=black;
-                if(eval("box.cell_"+(n+1)+".item_exists")==false){
-                    document.getElementsByClassName("box")[n].innerHTML=n+1;
+                if(eval("box.cell_"+(n)+".item_exists")==true){
+                    document.getElementById("piece_"+(n)).setAttribute("src","assets/"+eval("box.cell_"+(n)+".item_colour")+"_"+eval("box.cell_"+(n)+".item_type")+".png");
                 }
                 else{
-                    document.getElementsByClassName("box")[n].innerHTML=eval("box.cell_"+(n+1)+".item_colour")+"<br>"+eval("box.cell_"+(n+1)+".item_type")+" "+(n+1);
+                    document.getElementById("piece_"+(n)).setAttribute("src","assets/blank.png");
                 }
             }
             else{
                 document.getElementsByClassName("box")[n].style.backgroundColor=black;
                 document.getElementsByClassName("box")[n].style.color=white;
-                if(eval("box.cell_"+(n+1)+".item_exists")==false){
-                    document.getElementsByClassName("box")[n].innerHTML=n+1;
+                if(eval("box.cell_"+(n)+".item_exists")==true){
+                    document.getElementById("piece_"+(n)).setAttribute("src","assets/"+eval("box.cell_"+(n)+".item_colour")+"_"+eval("box.cell_"+(n)+".item_type")+".png");
                 }
                 else{
-                    document.getElementsByClassName("box")[n].innerHTML=eval("box.cell_"+(n+1)+".item_colour")+"<br>"+eval("box.cell_"+(n+1)+".item_type")+" "+(n+1);
-                }            }
+                    document.getElementById("piece_"+(n)).setAttribute("src","assets/blank.png");
+                }            
+            }
             n++;
         }
     }
