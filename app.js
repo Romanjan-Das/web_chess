@@ -37,7 +37,6 @@ function load_board(){
                 document.getElementsByClassName("box")[n].style.color=white;
             }
 
-            //document.getElementsByClassName("box")[n].innerHTML=n+1;
             document.getElementsByClassName("chess_piece_icon")[n].setAttribute("id","piece_"+(n+1));
             document.getElementsByClassName("box")[n].setAttribute("onclick","select_box("+(n+1)+");");
             document.getElementsByClassName("box")[n].setAttribute("id","cell_number_"+(n+1));
@@ -471,8 +470,8 @@ function select_box(i){
             if(temp_box_i.item_colour=="white" && temp_box_i.item_type=="pawn" && i<9){
                 temp_box_i.item_type="queen";
             }
-            document.getElementById("cell_number_"+i).innerHTML=eval("box.cell_"+i+".item_colour")+"<br>"+eval("box.cell_"+i+".item_type");
-            document.getElementById("cell_number_"+p).innerHTML="";
+            document.getElementById("piece_"+i).setAttribute("src","assets/"+eval("box.cell_"+i+".item_colour")+"_"+eval("box.cell_"+i+".item_type")+".png");
+            document.getElementById("piece_"+p).setAttribute("src","assets/blank.png");
             temp_box_p.item_exists=false;
             temp_box_p.item_type="";
             temp_box_p.item_colour="";
@@ -1176,23 +1175,28 @@ function reset_box_colours(){
             if(m%2==0){
                 document.getElementsByClassName("box")[n].style.backgroundColor=white;
                 document.getElementsByClassName("box")[n].style.color=black;
+                /*
                 if(eval("box.cell_"+(n)+".item_exists")==true){
                     document.getElementById("piece_"+(n)).setAttribute("src","assets/"+eval("box.cell_"+(n)+".item_colour")+"_"+eval("box.cell_"+(n)+".item_type")+".png");
                 }
                 else{
                     document.getElementById("piece_"+(n)).setAttribute("src","assets/blank.png");
                 }
+                */
             }
             else{
                 document.getElementsByClassName("box")[n].style.backgroundColor=black;
                 document.getElementsByClassName("box")[n].style.color=white;
+                /*
                 if(eval("box.cell_"+(n)+".item_exists")==true){
                     document.getElementById("piece_"+(n)).setAttribute("src","assets/"+eval("box.cell_"+(n)+".item_colour")+"_"+eval("box.cell_"+(n)+".item_type")+".png");
                 }
                 else{
                     document.getElementById("piece_"+(n)).setAttribute("src","assets/blank.png");
-                }            
+                }    
+                */        
             }
+            console.log(n);
             n++;
         }
     }
