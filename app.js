@@ -483,6 +483,7 @@ function select_box(i){
         rook_movement(i);
         bishop_movement(i,box_colour);
         knight_movement(i,box_colour);
+        queen_movement(i,box_colour);
     }
 
 
@@ -859,6 +860,198 @@ function knight_movement(i,box_colour){
                     document.getElementById("cell_number_"+h).style.backgroundColor="cyan";
                 }
             }
+        }
+    }
+    
+}
+
+function queen_movement(i,box_colour){
+        var left; var right; var top; var bottom; var left_limit; var right_limit; var top_limit; var bottom_limit;
+            /* -- white rook -- */
+            if(eval("box.cell_"+i+".item_type")=="queen"){
+    
+                /* ---- horizontal ---- */
+    
+                if(i>0 && i<9){
+                    left_limit=0; right_limit=9; 
+                }
+                else if(i>8 && i<17){
+                    left_limit=8; right_limit=17; 
+                }
+                else if(i>16 && i<25){
+                    left_limit=16; right_limit=25; 
+                }
+                else if(i>24 && i<33){
+                    left_limit=24; right_limit=33;
+                }
+                else if(i>32 && i<41){
+                    left_limit=32; right_limit=41;
+                }
+                else if(i>40 && i<49){
+                    left_limit=40; right_limit=49;
+                }
+                else if(i>48 && i<57){
+                    left_limit=48; right_limit=57;
+                }
+                else if(i>56 && i<65){
+                    left_limit=56; right_limit=65;
+                }
+                left=i; right=i; 
+                console.log("i:"+i+" left_limit:"+left_limit+" right_limit:"+right_limit+" left:"+left+" right:"+right);
+                
+                while(left>left_limit){
+                    left=left-1;
+                    if(left>left_limit){
+                        if(eval("box.cell_"+left+".item_exists")==true){
+                            if(eval("box.cell_"+left+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                                document.getElementById("cell_number_"+left).style.backgroundColor="magenta";
+                                break;
+                            }
+                            else if(eval("box.cell_"+left+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                                document.getElementById("cell_number_"+left).style.backgroundColor="magenta";
+                                break;
+                            }
+                            else{
+                                break;
+                            }
+                        }
+                        else{
+                            document.getElementById("cell_number_"+left).style.backgroundColor="cyan";
+                        }
+                    }
+                }
+                while(right<right_limit){
+                    right=right+1;
+                    if(right<right_limit){
+                        if(eval("box.cell_"+right+".item_exists")==true){
+                            if(eval("box.cell_"+right+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                                document.getElementById("cell_number_"+right).style.backgroundColor="magenta";
+                                break;
+                            }
+                            else if(eval("box.cell_"+right+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                                document.getElementById("cell_number_"+right).style.backgroundColor="magenta";
+                                break;
+                            }
+                            else{
+                                break;
+                            }
+                        }
+                        else{    
+                            document.getElementById("cell_number_"+right).style.backgroundColor="cyan";
+                        }
+                    }
+                }
+                
+    
+                /* ---- vertical ---- */
+                top_limit=0; bottom_limit=65;
+                top=i; bottom=i; 
+                console.log("i:"+i+" top_limit:"+top_limit+" bottom_limit:"+bottom_limit+" top:"+top+" bottom:"+bottom);
+                
+                while(top>top_limit){
+                    top=top-8;
+                    if(top>top_limit){
+                        if(eval("box.cell_"+top+".item_exists")==true){
+                            if(eval("box.cell_"+top+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                                document.getElementById("cell_number_"+top).style.backgroundColor="magenta";
+                                break;
+                            }
+                            else if(eval("box.cell_"+top+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                                document.getElementById("cell_number_"+top).style.backgroundColor="magenta";
+                                break;
+                            }
+                            else{
+                                break;
+                            }
+                        }
+                        else{
+                            document.getElementById("cell_number_"+top).style.backgroundColor="cyan";
+                        }
+                    }
+                }
+                while(bottom<bottom_limit){
+                    bottom=bottom+8;
+                    if(bottom<bottom_limit){
+                        if(eval("box.cell_"+bottom+".item_exists")==true){
+                            if(eval("box.cell_"+bottom+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                                document.getElementById("cell_number_"+bottom).style.backgroundColor="magenta";
+                                break;
+                            }
+                            else if(eval("box.cell_"+bottom+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                                document.getElementById("cell_number_"+bottom).style.backgroundColor="magenta";
+                                break;
+                            }
+                            else{
+                                break;
+                            }
+                        }
+                        else{
+                            document.getElementById("cell_number_"+bottom).style.backgroundColor="cyan";
+                        }
+                    }
+                }
+            }
+    
+
+
+/* -------------------------- Diagonal Movements ---------------------------------*/
+
+
+    var northeast; var southeast; var southwest; var northwest; var item_colour;
+    item_colour=eval("box.cell_"+i+".item_colour");
+    northeast=i-7; southeast=i+9; southwest=i+7; northwest=i-9;
+    if(eval("box.cell_"+i+".item_exists")==true && eval("box.cell_"+i+".item_type")=="queen"){
+        while(northeast>0 && document.getElementById("cell_number_"+northeast).style.backgroundColor==box_colour){
+            if(eval("box.cell_"+northeast+".item_exists")==true && eval("box.cell_"+northeast+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+northeast).style.backgroundColor="magenta";
+                break;
+            }
+            else if(eval("box.cell_"+northeast+".item_exists")==true && eval("box.cell_"+northeast+".item_colour")==item_colour){
+                break;
+            }
+            else{
+                document.getElementById("cell_number_"+northeast).style.backgroundColor="cyan";
+            }
+            northeast=northeast-7;
+        }
+        while(southeast<65 && document.getElementById("cell_number_"+southeast).style.backgroundColor==box_colour){
+            if(eval("box.cell_"+southeast+".item_exists")==true && eval("box.cell_"+southeast+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+southeast).style.backgroundColor="magenta";
+                break;
+            }
+            else if(eval("box.cell_"+southeast+".item_exists")==true && eval("box.cell_"+southeast+".item_colour")==item_colour){
+                break;
+            }
+            else{
+                document.getElementById("cell_number_"+southeast).style.backgroundColor="cyan";
+            }
+            southeast=southeast+9;
+        }
+        while(southwest<65 && document.getElementById("cell_number_"+southwest).style.backgroundColor==box_colour){
+            if(eval("box.cell_"+southwest+".item_exists")==true && eval("box.cell_"+southwest+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+southwest).style.backgroundColor="magenta";
+                break;
+            }
+            else if(eval("box.cell_"+southwest+".item_exists")==true && eval("box.cell_"+southwest+".item_colour")==item_colour){
+                break;
+            }
+            else{            
+                document.getElementById("cell_number_"+southwest).style.backgroundColor="cyan";
+            }
+            southwest=southwest+7;
+        }
+        while(northwest>0 && document.getElementById("cell_number_"+northwest).style.backgroundColor==box_colour){
+            if(eval("box.cell_"+northwest+".item_exists")==true && eval("box.cell_"+northwest+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+northwest).style.backgroundColor="magenta";
+                break;
+            }
+            else if(eval("box.cell_"+northwest+".item_exists")==true && eval("box.cell_"+northwest+".item_colour")==item_colour){
+                break;
+            }
+            else{
+                document.getElementById("cell_number_"+northwest).style.backgroundColor="cyan";
+            }
+            northwest=northwest-9;
         }
     }
     
