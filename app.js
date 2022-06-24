@@ -484,6 +484,7 @@ function select_box(i){
         bishop_movement(i,box_colour);
         knight_movement(i,box_colour);
         queen_movement(i,box_colour);
+        king_movement(i);
     }
 
 
@@ -1055,6 +1056,101 @@ function queen_movement(i,box_colour){
         }
     }
     
+}
+
+function king_movement(i){
+    if(eval("box.cell_"+i+".item_type")=="king"){
+        item_colour=eval("box.cell_"+i+".item_colour");
+        a=i+8;b=i-8;c=i+9;d=i-9;e=i+7;f=i-7;g=i+1;h=i-1;
+        if(a<65){
+            if(eval("box.cell_"+a+".item_exists")==true && eval("box.cell_"+a+".item_colour")==item_colour){
+
+            }
+            else if(eval("box.cell_"+a+".item_exists")==true && eval("box.cell_"+a+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+a).style.backgroundColor="magenta";
+            }
+            else{
+                document.getElementById("cell_number_"+a).style.backgroundColor="cyan";
+            }
+        }
+        if(c<65){
+            if(eval("box.cell_"+c+".item_exists")==true && eval("box.cell_"+c+".item_colour")==item_colour){
+
+            }
+            else if(eval("box.cell_"+c+".item_exists")==true && eval("box.cell_"+c+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+c).style.backgroundColor="magenta";
+            }
+            else{
+                document.getElementById("cell_number_"+c).style.backgroundColor="cyan";
+            }
+        }
+        if(e<65){
+            if(eval("box.cell_"+e+".item_exists")==true && eval("box.cell_"+e+".item_colour")==item_colour){
+
+            }
+            else if(eval("box.cell_"+e+".item_exists")==true && eval("box.cell_"+e+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+e).style.backgroundColor="magenta";
+            }
+            else{
+                document.getElementById("cell_number_"+e).style.backgroundColor="cyan";
+            }
+        }
+        if(g<65){
+            if(eval("box.cell_"+g+".item_exists")==true && eval("box.cell_"+g+".item_colour")==item_colour){
+
+            }
+            else if(eval("box.cell_"+g+".item_exists")==true && eval("box.cell_"+g+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+g).style.backgroundColor="magenta";
+            }
+            else{
+                document.getElementById("cell_number_"+g).style.backgroundColor="cyan";
+            }
+        }
+        if(b>0){
+            if(eval("box.cell_"+b+".item_exists")==true && eval("box.cell_"+b+".item_colour")==item_colour){
+
+            }
+            else if(eval("box.cell_"+b+".item_exists")==true && eval("box.cell_"+b+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+b).style.backgroundColor="magenta";
+            }
+            else{
+                document.getElementById("cell_number_"+b).style.backgroundColor="cyan";
+            }
+        }
+        if(d>0){
+            if(eval("box.cell_"+d+".item_exists")==true && eval("box.cell_"+d+".item_colour")==item_colour){
+
+            }
+            else if(eval("box.cell_"+d+".item_exists")==true && eval("box.cell_"+d+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+d).style.backgroundColor="magenta";
+            }
+            else{
+                document.getElementById("cell_number_"+d).style.backgroundColor="cyan";
+            }
+        }
+        if(f>0){
+            if(eval("box.cell_"+f+".item_exists")==true && eval("box.cell_"+f+".item_colour")==item_colour){
+
+            }
+            else if(eval("box.cell_"+f+".item_exists")==true && eval("box.cell_"+f+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+f).style.backgroundColor="magenta";
+            }
+            else{
+                document.getElementById("cell_number_"+f).style.backgroundColor="cyan";
+            }
+        }
+        if(h>0){
+            if(eval("box.cell_"+h+".item_exists")==true && eval("box.cell_"+h+".item_colour")==item_colour){
+
+            }
+            else if(eval("box.cell_"+h+".item_exists")==true && eval("box.cell_"+h+".item_colour")!=item_colour){
+                document.getElementById("cell_number_"+h).style.backgroundColor="magenta";
+            }
+            else{
+                document.getElementById("cell_number_"+h).style.backgroundColor="cyan";
+            }
+        }
+    }
 }
 
 function reset_box_colours(){
