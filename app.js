@@ -19,20 +19,20 @@ function load_board(){
         }
     }
 
-    var l=0;m=0;n=0;var white="black"; var black="black";
+    var l=0;m=0;n=0;var seashell="saddlebrown"; var saddlebrown="saddlebrown";
     for(l=0;l<8;l++){
         if(l%2==0){
-            white="white"; black="black";
+            seashell="seashell"; saddlebrown="saddlebrown";
         }
         else{
-            white="black"; black="white";
+            seashell="saddlebrown"; saddlebrown="seashell";
         }
         for(m=0;m<8;m++){
             if(m%2==0){
-                document.getElementsByClassName("box")[n].style.backgroundColor=white;
+                document.getElementsByClassName("box")[n].style.backgroundColor=seashell;
             }
             else{
-                document.getElementsByClassName("box")[n].style.backgroundColor=black;
+                document.getElementsByClassName("box")[n].style.backgroundColor=saddlebrown;
             }
 
             document.getElementsByClassName("chess_piece_icon")[n].setAttribute("id","piece_"+(n+1));
@@ -50,99 +50,99 @@ function set_box_properties(){
         cell_1:{
             cell_number:1,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"rook"
         },
 
         cell_2:{
             cell_number:2,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"knight"
         },
 
         cell_3:{
             cell_number:3,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"bishop"
         },
         cell_4:{
             cell_number:4,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"queen"
         },
         cell_5:{
             cell_number:5,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"king"
         },
         cell_6:{
             cell_number:6,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"bishop"
         },
         cell_7:{
             cell_number:7,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"knight"
         },
         cell_8:{
             cell_number:8,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"rook"
         },
         cell_9:{
             cell_number:9,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"pawn"
         },
         cell_10:{
             cell_number:10,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"pawn"
         },
         cell_11:{
             cell_number:11,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"pawn"
         },
         cell_12:{
             cell_number:12,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"pawn"
         },
         cell_13:{
             cell_number:13,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"pawn"
         },
         cell_14:{
             cell_number:14,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"pawn"
         },
         cell_15:{
             cell_number:15,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"pawn"
         },
         cell_16:{
             cell_number:16,
             item_exists:true,
-            item_colour:"black",
+            item_colour:"saddlebrown",
             item_type:"pawn"
         },
         cell_17:{
@@ -340,97 +340,97 @@ function set_box_properties(){
         cell_49:{
             cell_number:49,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"pawn"
         },
         cell_50:{
             cell_number:50,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"pawn"
         },
         cell_51:{
             cell_number:51,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"pawn"
         },
         cell_52:{
             cell_number:52,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"pawn"
         },
         cell_53:{
             cell_number:53,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"pawn"
         },
         cell_54:{
             cell_number:54,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"pawn"
         },
         cell_55:{
             cell_number:55,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"pawn"
         },
         cell_56:{
             cell_number:56,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"pawn"
         },
         cell_57:{
             cell_number:57,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"rook"
         },
         cell_58:{
             cell_number:58,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"knight"
         },
         cell_59:{
             cell_number:59,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"bishop"
         },
         cell_60:{
             cell_number:60,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"queen"
         },
         cell_61:{
             cell_number:61,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"king"
         },
         cell_62:{
             cell_number:62,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"bishop"
         },
         cell_63:{
             cell_number:63,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"knight"
         },
         cell_64:{
             cell_number:64,
             item_exists:true,
-            item_colour:"white",
+            item_colour:"seashell",
             item_type:"rook"
         }
     };
@@ -448,7 +448,7 @@ function set_chesspieces_in_initial_position(){
     }
 }
 var p=0;/* <--previously selected cell number */ var is_an_item_selected=false;
-var turn_of_colour="white";
+var turn_of_colour="seashell";
 function select_box(i){
     var temp_box_i; var temp_box_p; var box_colour;
     if(is_an_item_selected==true && (document.getElementById("cell_number_"+(i)).style.backgroundColor=="yellow")){
@@ -463,19 +463,19 @@ function select_box(i){
             temp_box_i.item_exists=temp_box_p.item_exists;
             temp_box_i.item_type=temp_box_p.item_type;
             temp_box_i.item_colour=temp_box_p.item_colour;
-            if(temp_box_i.item_colour=="black" && temp_box_i.item_type=="pawn" && i>56){
+            if(temp_box_i.item_colour=="saddlebrown" && temp_box_i.item_type=="pawn" && i>56){
                 temp_box_i.item_type="queen";
             }
-            if(temp_box_i.item_colour=="white" && temp_box_i.item_type=="pawn" && i<9){
+            if(temp_box_i.item_colour=="seashell" && temp_box_i.item_type=="pawn" && i<9){
                 temp_box_i.item_type="queen";
             }
             document.getElementById("piece_"+i).setAttribute("src","assets/"+eval("box.cell_"+i+".item_colour")+"_"+eval("box.cell_"+i+".item_type")+".png");
             document.getElementById("piece_"+p).setAttribute("src","assets/blank.png");
-            if(turn_of_colour=="white"){
-                turn_of_colour="black";
+            if(turn_of_colour=="seashell"){
+                turn_of_colour="saddlebrown";
             }
-            else if(turn_of_colour=="black"){
-                turn_of_colour="white";
+            else if(turn_of_colour=="saddlebrown"){
+                turn_of_colour="seashell";
             }
             temp_box_p.item_exists=false;
             temp_box_p.item_type="";
@@ -507,7 +507,7 @@ function select_box(i){
 
 function rook_movement(i){
     var left; var right; var top; var bottom; var left_limit; var right_limit; var top_limit; var bottom_limit;
-        /* -- white rook -- */
+        /* -- seashell rook -- */
         if(eval("box.cell_"+i+".item_type")=="rook"){
 
             /* ---- horizontal ---- */
@@ -542,11 +542,11 @@ function rook_movement(i){
                 left=left-1;
                 if(left>left_limit){
                     if(eval("box.cell_"+left+".item_exists")==true){
-                        if(eval("box.cell_"+left+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                        if(eval("box.cell_"+left+".item_colour")=="saddlebrown" && eval("box.cell_"+i+".item_colour")=="seashell"){
                             document.getElementById("cell_number_"+left).style.backgroundColor="magenta";
                             break;
                         }
-                        else if(eval("box.cell_"+left+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                        else if(eval("box.cell_"+left+".item_colour")=="seashell" && eval("box.cell_"+i+".item_colour")=="saddlebrown"){
                             document.getElementById("cell_number_"+left).style.backgroundColor="magenta";
                             break;
                         }
@@ -563,11 +563,11 @@ function rook_movement(i){
                 right=right+1;
                 if(right<right_limit){
                     if(eval("box.cell_"+right+".item_exists")==true){
-                        if(eval("box.cell_"+right+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                        if(eval("box.cell_"+right+".item_colour")=="saddlebrown" && eval("box.cell_"+i+".item_colour")=="seashell"){
                             document.getElementById("cell_number_"+right).style.backgroundColor="magenta";
                             break;
                         }
-                        else if(eval("box.cell_"+right+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                        else if(eval("box.cell_"+right+".item_colour")=="seashell" && eval("box.cell_"+i+".item_colour")=="saddlebrown"){
                             document.getElementById("cell_number_"+right).style.backgroundColor="magenta";
                             break;
                         }
@@ -590,11 +590,11 @@ function rook_movement(i){
                 top=top-8;
                 if(top>top_limit){
                     if(eval("box.cell_"+top+".item_exists")==true){
-                        if(eval("box.cell_"+top+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                        if(eval("box.cell_"+top+".item_colour")=="saddlebrown" && eval("box.cell_"+i+".item_colour")=="seashell"){
                             document.getElementById("cell_number_"+top).style.backgroundColor="magenta";
                             break;
                         }
-                        else if(eval("box.cell_"+top+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                        else if(eval("box.cell_"+top+".item_colour")=="seashell" && eval("box.cell_"+i+".item_colour")=="saddlebrown"){
                             document.getElementById("cell_number_"+top).style.backgroundColor="magenta";
                             break;
                         }
@@ -611,11 +611,11 @@ function rook_movement(i){
                 bottom=bottom+8;
                 if(bottom<bottom_limit){
                     if(eval("box.cell_"+bottom+".item_exists")==true){
-                        if(eval("box.cell_"+bottom+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                        if(eval("box.cell_"+bottom+".item_colour")=="saddlebrown" && eval("box.cell_"+i+".item_colour")=="seashell"){
                             document.getElementById("cell_number_"+bottom).style.backgroundColor="magenta";
                             break;
                         }
-                        else if(eval("box.cell_"+bottom+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                        else if(eval("box.cell_"+bottom+".item_colour")=="seashell" && eval("box.cell_"+i+".item_colour")=="saddlebrown"){
                             document.getElementById("cell_number_"+bottom).style.backgroundColor="magenta";
                             break;
                         }
@@ -632,8 +632,8 @@ function rook_movement(i){
 }
 
 function pawn_movement(i){
-        /* -- white pawn -- */
-        if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="white"){
+        /* -- seashell pawn -- */
+        if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="seashell"){
             if(i>48 && i<57){
                 if(eval("box.cell_"+(i-8)+".item_exists")==false){
                     document.getElementById("cell_number_"+(i-8)).style.backgroundColor="cyan";
@@ -642,12 +642,12 @@ function pawn_movement(i){
                     document.getElementById("cell_number_"+(i-16)).style.backgroundColor="cyan";
                 }
                 if(i-9>0 && i!=1 && i!=9 && i!=17 && i!=25 && i!=33 && i!=41 && i!=49){
-                    if(eval("box.cell_"+(i-9)+".item_exists")==true && eval("box.cell_"+(i-9)+".item_colour")=="black"){
+                    if(eval("box.cell_"+(i-9)+".item_exists")==true && eval("box.cell_"+(i-9)+".item_colour")=="saddlebrown"){
                         document.getElementById("cell_number_"+(i-9)).style.backgroundColor="magenta";
                     }
                 }
                 if(i-7>0 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=56){
-                    if(eval("box.cell_"+(i-7)+".item_exists")==true && eval("box.cell_"+(i-7)+".item_colour")=="black"){
+                    if(eval("box.cell_"+(i-7)+".item_exists")==true && eval("box.cell_"+(i-7)+".item_colour")=="saddlebrown"){
                         document.getElementById("cell_number_"+(i-7)).style.backgroundColor="magenta";
                     }
                 }
@@ -657,19 +657,19 @@ function pawn_movement(i){
                     document.getElementById("cell_number_"+(i-8)).style.backgroundColor="cyan";
                 }
                 if(i-9>0 && i!=1 && i!=9 && i!=17 && i!=25 && i!=33 && i!=41 && i!=49){
-                    if(eval("box.cell_"+(i-9)+".item_exists")==true && eval("box.cell_"+(i-9)+".item_colour")=="black"){
+                    if(eval("box.cell_"+(i-9)+".item_exists")==true && eval("box.cell_"+(i-9)+".item_colour")=="saddlebrown"){
                         document.getElementById("cell_number_"+(i-9)).style.backgroundColor="magenta";
                     }
                 }
                 if(i-7>0 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=56){
-                    if(eval("box.cell_"+(i-7)+".item_exists")==true && eval("box.cell_"+(i-7)+".item_colour")=="black"){
+                    if(eval("box.cell_"+(i-7)+".item_exists")==true && eval("box.cell_"+(i-7)+".item_colour")=="saddlebrown"){
                         document.getElementById("cell_number_"+(i-7)).style.backgroundColor="magenta";
                     }
                 }
             }
         }
-        /* -- black pawn -- */
-        if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="black"){
+        /* -- saddlebrown pawn -- */
+        if(eval("box.cell_"+(i)+".item_type")==="pawn" && eval("box.cell_"+(i)+".item_colour")==="saddlebrown"){
             if(i>8 && i<17){
                 if(eval("box.cell_"+(i+8)+".item_exists")==false){
                     document.getElementById("cell_number_"+(i+8)).style.backgroundColor="cyan";
@@ -678,12 +678,12 @@ function pawn_movement(i){
                     document.getElementById("cell_number_"+(i+16)).style.backgroundColor="cyan";
                 }
                 if(i+9<65 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=56){
-                    if(eval("box.cell_"+(i+9)+".item_exists")==true && eval("box.cell_"+(i+9)+".item_colour")=="white"){
+                    if(eval("box.cell_"+(i+9)+".item_exists")==true && eval("box.cell_"+(i+9)+".item_colour")=="seashell"){
                         document.getElementById("cell_number_"+(i+9)).style.backgroundColor="magenta";
                     }
                 }
                 if(i+7<65 && i!=1 && i!=9 && i!=17 && i!=25 && i!=33 && i!=41 && i!=49){
-                    if(eval("box.cell_"+(i+7)+".item_exists")==true && eval("box.cell_"+(i+7)+".item_colour")=="white"){
+                    if(eval("box.cell_"+(i+7)+".item_exists")==true && eval("box.cell_"+(i+7)+".item_colour")=="seashell"){
                         document.getElementById("cell_number_"+(i+7)).style.backgroundColor="magenta";
                     }
                 }            
@@ -693,12 +693,12 @@ function pawn_movement(i){
                     document.getElementById("cell_number_"+(i+8)).style.backgroundColor="cyan";
                 }
                 if(i+9<65 && i!=8 && i!=16 && i!=24 && i!=32 && i!=40 && i!=48 && i!=56){
-                    if(eval("box.cell_"+(i+9)+".item_exists")==true && eval("box.cell_"+(i+9)+".item_colour")=="white"){
+                    if(eval("box.cell_"+(i+9)+".item_exists")==true && eval("box.cell_"+(i+9)+".item_colour")=="seashell"){
                         document.getElementById("cell_number_"+(i+9)).style.backgroundColor="magenta";
                     }
                 }
                 if(i+7<65 && i!=1 && i!=9 && i!=17 && i!=25 && i!=33 && i!=41 && i!=49){
-                    if(eval("box.cell_"+(i+7)+".item_exists")==true && eval("box.cell_"+(i+7)+".item_colour")=="white"){
+                    if(eval("box.cell_"+(i+7)+".item_exists")==true && eval("box.cell_"+(i+7)+".item_colour")=="seashell"){
                         document.getElementById("cell_number_"+(i+7)).style.backgroundColor="magenta";
                     }
                 }
@@ -881,7 +881,7 @@ function knight_movement(i,box_colour){
 
 function queen_movement(i,box_colour){
         var left; var right; var top; var bottom; var left_limit; var right_limit; var top_limit; var bottom_limit;
-            /* -- white rook -- */
+            /* -- seashell rook -- */
             if(eval("box.cell_"+i+".item_type")=="queen"){
     
                 /* ---- horizontal ---- */
@@ -916,11 +916,11 @@ function queen_movement(i,box_colour){
                     left=left-1;
                     if(left>left_limit){
                         if(eval("box.cell_"+left+".item_exists")==true){
-                            if(eval("box.cell_"+left+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                            if(eval("box.cell_"+left+".item_colour")=="saddlebrown" && eval("box.cell_"+i+".item_colour")=="seashell"){
                                 document.getElementById("cell_number_"+left).style.backgroundColor="magenta";
                                 break;
                             }
-                            else if(eval("box.cell_"+left+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                            else if(eval("box.cell_"+left+".item_colour")=="seashell" && eval("box.cell_"+i+".item_colour")=="saddlebrown"){
                                 document.getElementById("cell_number_"+left).style.backgroundColor="magenta";
                                 break;
                             }
@@ -937,11 +937,11 @@ function queen_movement(i,box_colour){
                     right=right+1;
                     if(right<right_limit){
                         if(eval("box.cell_"+right+".item_exists")==true){
-                            if(eval("box.cell_"+right+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                            if(eval("box.cell_"+right+".item_colour")=="saddlebrown" && eval("box.cell_"+i+".item_colour")=="seashell"){
                                 document.getElementById("cell_number_"+right).style.backgroundColor="magenta";
                                 break;
                             }
-                            else if(eval("box.cell_"+right+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                            else if(eval("box.cell_"+right+".item_colour")=="seashell" && eval("box.cell_"+i+".item_colour")=="saddlebrown"){
                                 document.getElementById("cell_number_"+right).style.backgroundColor="magenta";
                                 break;
                             }
@@ -964,11 +964,11 @@ function queen_movement(i,box_colour){
                     top=top-8;
                     if(top>top_limit){
                         if(eval("box.cell_"+top+".item_exists")==true){
-                            if(eval("box.cell_"+top+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                            if(eval("box.cell_"+top+".item_colour")=="saddlebrown" && eval("box.cell_"+i+".item_colour")=="seashell"){
                                 document.getElementById("cell_number_"+top).style.backgroundColor="magenta";
                                 break;
                             }
-                            else if(eval("box.cell_"+top+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                            else if(eval("box.cell_"+top+".item_colour")=="seashell" && eval("box.cell_"+i+".item_colour")=="saddlebrown"){
                                 document.getElementById("cell_number_"+top).style.backgroundColor="magenta";
                                 break;
                             }
@@ -985,11 +985,11 @@ function queen_movement(i,box_colour){
                     bottom=bottom+8;
                     if(bottom<bottom_limit){
                         if(eval("box.cell_"+bottom+".item_exists")==true){
-                            if(eval("box.cell_"+bottom+".item_colour")=="black" && eval("box.cell_"+i+".item_colour")=="white"){
+                            if(eval("box.cell_"+bottom+".item_colour")=="saddlebrown" && eval("box.cell_"+i+".item_colour")=="seashell"){
                                 document.getElementById("cell_number_"+bottom).style.backgroundColor="magenta";
                                 break;
                             }
-                            else if(eval("box.cell_"+bottom+".item_colour")=="white" && eval("box.cell_"+i+".item_colour")=="black"){
+                            else if(eval("box.cell_"+bottom+".item_colour")=="seashell" && eval("box.cell_"+i+".item_colour")=="saddlebrown"){
                                 document.getElementById("cell_number_"+bottom).style.backgroundColor="magenta";
                                 break;
                             }
@@ -1165,20 +1165,20 @@ function king_movement(i){
 }
 
 function reset_box_colours(){
-    var l=0;m=0;n=0;var white="black"; var black="black";
+    var l=0;m=0;n=0;var seashell="saddlebrown"; var saddlebrown="saddlebrown";
     for(l=0;l<8;l++){
         if(l%2==0){
-            white="white"; black="black";
+            seashell="seashell"; saddlebrown="saddlebrown";
         }
         else{
-            white="black"; black="white";
+            seashell="saddlebrown"; saddlebrown="seashell";
         }
         for(m=0;m<8;m++){
             if(m%2==0){
-                document.getElementsByClassName("box")[n].style.backgroundColor=white;
+                document.getElementsByClassName("box")[n].style.backgroundColor=seashell;
             }
             else{
-                document.getElementsByClassName("box")[n].style.backgroundColor=black;       
+                document.getElementsByClassName("box")[n].style.backgroundColor=saddlebrown;       
             }
             n++;
         }
