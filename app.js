@@ -5,7 +5,6 @@ function main(){
 }
 function replay(){
     create_box_object_and_set_its_properties(); 
-    set_chesspieces_in_initial_position();
     document.getElementById("victory_message").style.display="none";
 }
 
@@ -57,7 +56,7 @@ function create_boxes_and_set_attributes(){
 }
 
 var p=0;/* <--previously selected cell number */ var is_an_item_selected=false;
-var turn_of_colour="white";
+var turn_of_colour="white";var victory_sound; var move_sound;
 function select_box(i){
     var temp_box_i; var temp_box_p; var box_colour; var victory_message; var victory_condition=false;
     if(is_an_item_selected==true && (document.getElementById("cell_number_"+(i)).style.backgroundColor=="yellow")){
@@ -70,7 +69,6 @@ function select_box(i){
         if((document.getElementById("cell_number_"+(i)).style.backgroundColor=="cyan")||(document.getElementById("cell_number_"+(i)).style.backgroundColor=="magenta")){
             temp_box_i=eval("box.cell_"+i);
             temp_box_p=eval("box.cell_"+p);
-            console.log(temp_box_i.item_colour+" "+temp_box_i.item_type);
             if(temp_box_i.item_type=="king"){
                 if(temp_box_i.item_colour=="white"){
                     victory_message="BLACKS WIN";
@@ -81,7 +79,6 @@ function select_box(i){
                     victory_condition=true;
                 }
             }
-            console.log(victory_message+" "+victory_condition);
             temp_box_i.item_exists=temp_box_p.item_exists;
             temp_box_i.item_type=temp_box_p.item_type;
             temp_box_i.item_colour=temp_box_p.item_colour;
@@ -107,10 +104,14 @@ function select_box(i){
                 setTimeout(function() {
                     document.getElementById("victory_message").style.display="flex";
                     document.getElementById("final_victory_message").innerHTML="Hurray!!!<br><br>"+victory_message;
+                    victory_sound=document.getElementById("victory_sound");
+                    victory_sound.play();
                 }, 1500);
             }
         }
         update_shadow_board();
+        move_sound=document.getElementById("move_sound")
+        move_sound.play();
     }
     else if(is_an_item_selected==false){
         if((eval("box.cell_"+(i)+".item_colour")==turn_of_colour)){        
