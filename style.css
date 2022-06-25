@@ -3,15 +3,30 @@ body{
 }
 .board{
     display:flex;flex-direction: column;width: fit-content;height: fit-content;border-top:1px black solid;border-left:1px black solid;
+    position: fixed; z-index: 1; opacity: 0;
+}
+.shadow_board{
+    display:flex;flex-direction: column;width: 512px;height: 512px;border-top:1px black solid;border-left:1px black solid;
+    position: fixed; z-index: 0; background-color: transparent; top: 8px; left: 8px;
 }
 .row{
     display: flex;flex-direction: row;width: 512px;height:64px;box-sizing: border-box;
+}
+.shadow_row{
+    display: flex;flex-direction: row;width: 512px;height:64px;box-sizing: border-box;opacity: 1;
 }
 .box{
     display: flex;align-items: center;justify-content: center;width: 64px;height: 64px;box-sizing: border-box;
     font-size: 10px;cursor: pointer; border-right: 1px black solid; border-bottom: 1px black solid;
 }
+.shadow_box{
+    display: flex;align-items: center;justify-content: center;width: 64px;height: 64px;box-sizing: border-box;
+    font-size: 10px;cursor: pointer; border-right: 1px black solid; border-bottom: 1px black solid;
+}
 .chess_piece_icon{
+    width: 80%; height: 80%;
+}
+.shadow_chess_piece_icon{
     width: 80%; height: 80%;
 }
 #victory_message{
