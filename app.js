@@ -5,6 +5,7 @@ function main(){
 }
 function replay(){
     create_box_object_and_set_its_properties(); 
+    update_shadow_board();
     document.getElementById("victory_message").style.display="none";
 }
 
@@ -90,9 +91,11 @@ function select_box(i){
             }
             if(turn_of_colour=="white"){
                 turn_of_colour="black";
+                document.getElementById("turn_indicator").innerHTML="Black's turn";
             }
             else if(turn_of_colour=="black"){
                 turn_of_colour="white";
+                document.getElementById("turn_indicator").innerHTML="White's turn";
             }
             temp_box_p.item_exists=false;
             temp_box_p.item_type="";

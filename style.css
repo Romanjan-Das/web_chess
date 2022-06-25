@@ -41,3 +41,7 @@ body{
 button{
     margin-top: 30px;cursor: pointer;
 }
+#turn_indicator{
+    position: fixed; top: 550px; left: 202px; border: 1px black solid; padding: 3px; color: darkgreen; width: 120px; text-align: center;
+    font-size: larger;
+}
